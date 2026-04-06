@@ -1,0 +1,64 @@
+@import url('../cards/cards.css');
+
+/* === Cards Awards variant === */
+.cards-awards > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.cards-awards > ul > li {
+  border: none;
+  background: transparent;
+  text-align: center;
+}
+
+.cards-awards .cards-card-image {
+  display: flex;
+  justify-content: center;
+  line-height: 0;
+  margin-bottom: 12px;
+}
+
+.cards-awards .cards-card-image picture {
+  width: 80px;
+  height: 80px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards-awards > ul > li img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  aspect-ratio: auto;
+}
+
+.cards-awards .cards-card-body {
+  margin: 0;
+  text-align: center;
+}
+
+.cards-awards .cards-card-body h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #343434;
+  margin: 0 0 6px;
+}
+
+.cards-awards .cards-card-body p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+}
+
+@media (width >= 600px) {
+  .cards-awards > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
