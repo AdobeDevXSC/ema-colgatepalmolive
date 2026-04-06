@@ -1,3 +1,4 @@
+/* === Base columns === */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -28,6 +29,128 @@
 
   .columns > div > div {
     flex: 1;
+    order: unset;
+  }
+}
+
+/* === Columns Awards variant === */
+.columns-awards {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-awards > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.columns-awards > div > div {
+  flex: 1;
+  text-align: center;
+}
+
+.columns-awards h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #343434;
+}
+
+.columns-awards p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #666;
+  margin: 0;
+}
+
+@media (width >= 600px) {
+  .columns-awards > div {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+/* === Columns Careers variant === */
+.columns-careers {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-careers > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-careers > div > div:first-child h3,
+.columns-careers > div > div:first-child h4 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #d2010d;
+  margin: 0 0 8px;
+}
+
+.columns-careers > div > div:first-child strong {
+  font-size: 18px;
+  display: block;
+  margin-bottom: 12px;
+  color: #343434;
+}
+
+.columns-careers > div > div:first-child p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 12px;
+}
+
+.columns-careers > div > div:first-child a {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 12px;
+  margin-bottom: 8px;
+}
+
+.columns-careers > div > div:first-child a:first-of-type {
+  background-color: #d2010d;
+  color: white;
+}
+
+.columns-careers > div > div:first-child a:first-of-type:hover {
+  background-color: #b00009;
+}
+
+.columns-careers > div > div:last-child {
+  order: -1;
+}
+
+.columns-careers > div > div:last-child img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+@media (width >= 600px) {
+  .columns-careers > div {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .columns-careers > div > div {
+    flex: 1;
+  }
+
+  .columns-careers > div > div:last-child {
     order: unset;
   }
 }

@@ -154,6 +154,17 @@ main > div {
   margin: 40px 16px;
 }
 
+main .cards-spotlight-container {
+  margin: 0;
+  padding: 0;
+  max-width: 1240px;
+}
+
+main .cards-spotlight-container .cards-spotlight-wrapper {
+  padding: 0;
+  margin: 0;
+}
+
 input,
 textarea,
 select,
@@ -261,4 +272,44 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.grey {
+  background-color: #f3f3f3;
+  margin: 0;
+  padding: 60px 0;
+}
+
+main .section.grey h3 {
+  color: #d2010d;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 700;
+  margin-top: 0;
+}
+
+main .section.grey > div:first-child {
+  max-width: 1024px;
+  text-align: center;
+}
+
+main .section.grey > div:first-child > p:last-child {
+  text-align: center;
+}
+
+@media (width >= 600px) {
+  main .section.grey > div:first-child {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+
+  main .section.grey > div:first-child > h3 {
+    grid-column: 1 / -1;
+  }
+
+  main .section.grey > div:first-child > p:last-child {
+    grid-column: 1 / -1;
+  }
 }
