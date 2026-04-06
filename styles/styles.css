@@ -304,3 +304,30 @@ main .section.grey > div > p a::after {
   content: ' \2192';
   font-style: normal;
 }
+
+/* Section metadata style: quote — compact centered tagline (default content) */
+main > .section.quote {
+  margin: 0;
+  padding: 0;
+}
+
+main > .section.quote > div {
+  padding-block: 0;
+}
+
+main > .section.quote .default-content-wrapper {
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-color);
+}
+
+main > .section.quote .default-content-wrapper p {
+  margin: 10px 0;
+}
+
+@media (width >= 900px) {
+  main > .section.quote .default-content-wrapper {
+    font-size: 13px;
+  }
+}

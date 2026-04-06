@@ -1,6 +1,10 @@
 @import url('../carousel/carousel.css');
 
 /* === Carousel Hero variant === */
+.carousel-hero-container {
+  margin: 0 !important;
+}
+
 .carousel-hero {
   max-width: 1240px;
   margin: 0 auto;
