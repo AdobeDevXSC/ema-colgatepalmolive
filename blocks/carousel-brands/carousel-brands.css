@@ -8,7 +8,7 @@
 .carousel-brands .brands-nav {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 24px;
 }
 
 /* Viewport clips the track */
@@ -32,9 +32,7 @@
   justify-content: center;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 4px solid #e8e8e8;
   overflow: hidden;
-  background: #f9f9f9;
 }
 
 .carousel-brands .brands-item a {
@@ -59,45 +57,52 @@
   object-fit: contain;
 }
 
-/* Prev / Next arrows */
+/* Prev / Next arrows — thin red ring, white fill, thin red chevrons */
 .carousel-brands .brands-prev,
 .carousel-brands .brands-next {
+  box-sizing: border-box;
   flex-shrink: 0;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid #d2010d;
-  background: white;
+  border: 1px solid #d2010d;
+  background-color: #d2010d;
   cursor: pointer;
   position: relative;
   padding: 0;
   margin: 0;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .carousel-brands .brands-prev:hover,
 .carousel-brands .brands-next:hover {
-  background-color: #fef0f0;
+  background-color: #fff;
+  border-color: #b3010b;
+}
+
+.carousel-brands .brands-prev:hover::after,
+.carousel-brands .brands-next:hover::after {
+  border-color: #b3010b;
 }
 
 .carousel-brands .brands-prev::after,
 .carousel-brands .brands-next::after {
   content: '';
   display: block;
-  width: 10px;
-  height: 10px;
-  border: 2px solid #d2010d;
+  width: 8px;
+  height: 8px;
+  border: 4px solid #fff;
   border-bottom: 0;
   border-left: 0;
   position: absolute;
   top: 50%;
-  left: calc(50% + 2px);
+  left: calc(50% + 1.5px);
   transform: translate(-50%, -50%) rotate(-135deg);
 }
 
 .carousel-brands .brands-next::after {
   transform: translate(-50%, -50%) rotate(45deg);
-  left: calc(50% - 2px);
+  left: calc(50% - 1.5px);
 }
 
 /* Controls row: pause + indicators */
@@ -181,11 +186,21 @@
   background: #555;
 }
 
-/* Responsive: larger arrows on desktop */
+/* Slightly larger hit target on wide screens; still outlined style */
 @media (width >= 900px) {
+  .carousel-brands .brands-nav {
+    gap: 28px;
+  }
+
   .carousel-brands .brands-prev,
   .carousel-brands .brands-next {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .carousel-brands .brands-prev::after,
+  .carousel-brands .brands-next::after {
+    width: 8px;
+    height: 8px;
   }
 }

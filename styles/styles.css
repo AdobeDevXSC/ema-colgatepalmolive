@@ -184,9 +184,11 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons */
-a.button:any-link,
-button {
+/* Header / footer: pill buttons */
+header a.button:any-link,
+footer a.button:any-link,
+header button.button,
+footer button.button {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
@@ -207,25 +209,124 @@ button {
   white-space: nowrap;
 }
 
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
-  background-color: var(--link-hover-color);
-  cursor: pointer;
+header a.button:any-link::after,
+footer a.button:any-link::after,
+header button.button::after,
+footer button.button::after {
+  content: none;
 }
 
-button:disabled,
-button:disabled:hover {
+header a.button:hover,
+header a.button:focus,
+footer a.button:hover,
+footer a.button:focus,
+header button.button:hover,
+header button.button:focus,
+footer button.button:hover,
+footer button.button:focus {
+  background-color: var(--link-hover-color);
+}
+
+header a.button.secondary:any-link,
+footer a.button.secondary:any-link,
+header button.button.secondary,
+footer button.button.secondary {
+  background-color: unset;
+  border: 2px solid currentcolor;
+  color: var(--text-color);
+}
+
+header a.button.secondary:any-link:hover,
+header a.button.secondary:any-link:focus,
+footer a.button.secondary:any-link:hover,
+footer a.button.secondary:any-link:focus,
+header button.button.secondary:hover,
+header button.button.secondary:focus,
+footer button.button.secondary:hover,
+footer button.button.secondary:focus {
+  background-color: var(--light-color);
+  color: var(--text-color);
+}
+
+header button.button:disabled,
+header button.button:disabled:hover,
+footer button.button:disabled,
+footer button.button:disabled:hover {
   background-color: var(--light-color);
   cursor: unset;
 }
 
-a.button.secondary,
-button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
+/* Main only: doc CTA / form submit as bold italic link + trailing arrow */
+main a.button:any-link,
+main button.button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  max-width: 100%;
+  margin: 12px 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-family: var(--body-font-family);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: inherit;
+  text-decoration: none;
+  background: none;
+  color: var(--link-color);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+main a.button:any-link::after,
+main button.button::after {
+  content: '\2192';
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+main a.button.secondary:any-link,
+main button.button.secondary {
   color: var(--text-color);
+}
+
+main a.button:not(.secondary):any-link:hover,
+main a.button:not(.secondary):any-link:focus-visible,
+main button.button:not(.secondary):hover,
+main button.button:not(.secondary):focus-visible {
+  background-color: transparent;
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+main a.button.secondary:any-link:hover,
+main a.button.secondary:any-link:focus-visible,
+main button.button.secondary:hover,
+main button.button.secondary:focus-visible {
+  background-color: transparent;
+  color: var(--text-color);
+  text-decoration: underline;
+}
+
+main button.button:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+main button.button.secondary:focus-visible {
+  outline-color: var(--text-color);
+}
+
+main button.button:disabled,
+main button.button:disabled:hover {
+  background: none;
+  color: var(--dark-color);
+  opacity: 0.45;
+  cursor: not-allowed;
+  text-decoration: none;
 }
 
 main img {
@@ -324,6 +425,10 @@ main > .section.quote .default-content-wrapper {
 
 main > .section.quote .default-content-wrapper p {
   margin: 10px 0;
+}
+
+main > .section.center-title > .default-content-wrapper {
+  text-align: center;
 }
 
 @media (width >= 900px) {
