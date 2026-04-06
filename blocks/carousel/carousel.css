@@ -139,63 +139,100 @@
   margin: 0 auto;
 }
 
+.carousel-hero .carousel-slides-container {
+  overflow: hidden;
+}
+
 .carousel-hero .carousel-slide {
   min-height: 360px;
+}
+
+/* Dark gradient overlay on image */
+.carousel-hero .carousel-slide .carousel-slide-image {
+  position: absolute;
+  inset: 0;
 }
 
 .carousel-hero .carousel-slide .carousel-slide-image::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(0 0 0 / 60%) 0%, rgba(0 0 0 / 30%) 50%, transparent 100%);
+  background: linear-gradient(90deg, rgba(0 0 0 / 55%) 0%, rgba(0 0 0 / 25%) 50%, transparent 100%);
   z-index: 1;
 }
 
+/* Text content overlay */
 .carousel-hero .carousel-slide .carousel-slide-content {
   z-index: 2;
   margin: 24px;
   padding: 0;
-  max-width: 50%;
+  max-width: 55%;
   background-color: transparent;
 }
 
 .carousel-hero .carousel-slide .carousel-slide-content h1 {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3;
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   color: white;
   font-weight: 700;
 }
 
 .carousel-hero .carousel-slide .carousel-slide-content p {
+  margin: 0 0 16px;
+  color: rgba(255 255 255 / 90%);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* CTA link: bold italic with arrow */
+.carousel-hero .carousel-slide .carousel-slide-content a {
+  color: white;
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  background: none;
+  border: none;
   margin: 0;
 }
 
-.carousel-hero .carousel-slide .carousel-slide-content a {
-  color: white;
-  font-style: italic;
-  text-decoration: none;
-  font-size: 14px;
-}
-
 .carousel-hero .carousel-slide .carousel-slide-content a::after {
-  content: ' →';
+  content: '\2192';
   font-style: normal;
+  font-size: 18px;
 }
 
+.carousel-hero .carousel-slide .carousel-slide-content a:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+/* Dot indicators */
 .carousel-hero .carousel-slide-indicators {
   background-color: white;
 }
 
+/* Nav arrow buttons: blue circles, high z-index to stay clickable */
+.carousel-hero .carousel-navigation-buttons {
+  z-index: 3;
+  pointer-events: none;
+}
+
 /* stylelint-disable-next-line no-descending-specificity */
 .carousel-hero .carousel-navigation-buttons button {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(0 91 172 / 80%);
+  width: 44px;
+  height: 44px;
+  background-color: rgba(0 100 200 / 85%);
+  pointer-events: auto;
 }
 
 .carousel-hero .carousel-navigation-buttons button:hover {
-  background-color: rgba(0 91 172 / 100%);
+  background-color: rgba(0 80 180 / 100%);
 }
 
 @media (width >= 600px) {
@@ -205,11 +242,26 @@
 
   .carousel-hero .carousel-slide .carousel-slide-content {
     margin: 60px 80px;
-    max-width: 40%;
+    max-width: 45%;
   }
 
   .carousel-hero .carousel-slide .carousel-slide-content h1 {
-    font-size: 26px;
+    font-size: 30px;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .carousel-hero .carousel-slide .carousel-slide-content p {
+    font-size: 16px;
+  }
+
+  .carousel-hero .carousel-slide .carousel-slide-content a {
+    font-size: 17px;
+  }
+
+  .carousel-hero .carousel-navigation-buttons {
+    left: 24px;
+    right: 24px;
   }
 }
 
