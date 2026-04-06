@@ -1,1 +1,191 @@
-@import url('../carousel/carousel.css');
+.carousel-brands {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Nav row: arrows + viewport */
+.carousel-brands .brands-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Viewport clips the track */
+.carousel-brands .brands-viewport {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Track slides via transform */
+.carousel-brands .brands-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s ease;
+}
+
+/* Each brand item */
+.carousel-brands .brands-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 4px solid #e8e8e8;
+  overflow: hidden;
+  background: #f9f9f9;
+}
+
+.carousel-brands .brands-item a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-brands .brands-item picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75%;
+  height: 75%;
+}
+
+.carousel-brands .brands-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Prev / Next arrows */
+.carousel-brands .brands-prev,
+.carousel-brands .brands-next {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #d2010d;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  transition: background-color 0.2s;
+}
+
+.carousel-brands .brands-prev:hover,
+.carousel-brands .brands-next:hover {
+  background-color: #fef0f0;
+}
+
+.carousel-brands .brands-prev::after,
+.carousel-brands .brands-next::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #d2010d;
+  border-bottom: 0;
+  border-left: 0;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-brands .brands-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+/* Controls row: pause + indicators */
+.carousel-brands .brands-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 0 8px;
+}
+
+/* Pause / Play button */
+.carousel-brands .brands-pause {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+/* Pause icon (two bars) */
+.carousel-brands .brands-pause[data-playing="true"]::before,
+.carousel-brands .brands-pause[data-playing="true"]::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  width: 4px;
+  height: 16px;
+  background: #888;
+  border-radius: 1px;
+}
+
+.carousel-brands .brands-pause[data-playing="true"]::before {
+  left: 6px;
+}
+
+.carousel-brands .brands-pause[data-playing="true"]::after {
+  right: 6px;
+}
+
+/* Play icon (triangle) */
+.carousel-brands .brands-pause[data-playing="false"]::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 0 8px 12px;
+  border-color: transparent transparent transparent #888;
+}
+
+.carousel-brands .brands-pause[data-playing="false"]::after {
+  content: none;
+}
+
+/* Dot indicators */
+.carousel-brands .brands-indicators {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.carousel-brands .brands-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #c4c4c4;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  transition: background-color 0.2s;
+}
+
+.carousel-brands .brands-indicator.active {
+  background: #555;
+}
+
+/* Responsive: larger arrows on desktop */
+@media (width >= 900px) {
+  .carousel-brands .brands-prev,
+  .carousel-brands .brands-next {
+    width: 48px;
+    height: 48px;
+  }
+}
