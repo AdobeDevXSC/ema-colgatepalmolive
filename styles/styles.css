@@ -39,7 +39,7 @@
   /* nav heights */
   --nav-height: 64px;
   --breadcrumbs-height: 34px;
-  --header-height: var(--nav-height);
+  --header-height: 100px;
 }
 
 /* fallback fonts */
