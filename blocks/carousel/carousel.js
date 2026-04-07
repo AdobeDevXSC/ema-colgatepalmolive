@@ -147,4 +147,15 @@ export default async function decorate(block) {
   if (!isSingleSlide) {
     bindEvents(block);
   }
+
+  /* First hero slide is typically LCP — PageSpeed/Lighthouse expect eager + fetchpriority */
+  if (block.classList.contains('carousel-hero')) {
+    const firstHeroImg = container.querySelector(
+      '.carousel-slide:first-child .carousel-slide-image img, .carousel-slide:first-child .carousel-slide-image picture img',
+    );
+    if (firstHeroImg) {
+      firstHeroImg.setAttribute('loading', 'eager');
+      firstHeroImg.setAttribute('fetchpriority', 'high');
+    }
+  }
 }

@@ -69,6 +69,30 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Hero / first carousel slide is usually LCP — avoid lazy + hint fetch priority early
+ * (runs in decorateMain before async block JS moves nodes; attributes persist on the same img).
+ */
+function prioritizeLCPImages(main) {
+  const carouselHero = main.querySelector('.carousel-hero');
+  if (carouselHero) {
+    const img = carouselHero.querySelector(
+      ':scope > div:first-child picture img, :scope > div:first-child img[src]',
+    );
+    if (img) {
+      img.setAttribute('loading', 'eager');
+      img.setAttribute('fetchpriority', 'high');
+    }
+    return;
+  }
+
+  const heroImg = main.querySelector('.hero picture img, .hero img[src]');
+  if (heroImg) {
+    heroImg.setAttribute('loading', 'eager');
+    heroImg.setAttribute('fetchpriority', 'high');
+  }
+}
+
+/**
  * Decorates all sections in a container element.
  * @param {Element} main The container element
  */
@@ -132,6 +156,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  prioritizeLCPImages(main);
 }
 
 /**
