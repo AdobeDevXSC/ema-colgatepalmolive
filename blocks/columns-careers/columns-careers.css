@@ -1,1 +1,106 @@
 @import url('../columns/columns.css');
+
+/* === Columns Careers variant === */
+.columns-careers {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-careers > div {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Description text */
+.columns-careers > div > div:first-child p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 16px;
+}
+
+/* "Careers" heading — large bold black */
+.columns-careers > div > div:first-child p:first-child {
+  font-size: 32px;
+  font-weight: 700;
+  color: #343434;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+/* "Build a Bright Future With Us" subheading */
+.columns-careers > div > div:first-child strong {
+  font-size: 18px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 16px;
+  color: #343434;
+}
+
+/* CTA links — bold italic blue with arrow */
+.columns-careers > div > div:first-child a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  text-decoration: none;
+  color: var(--link-color);
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+.columns-careers > div > div:first-child a::after {
+  content: '\2192';
+  font-style: normal;
+  font-size: 18px;
+}
+
+.columns-careers > div > div:first-child a:hover {
+  text-decoration: underline;
+  color: var(--link-hover-color);
+}
+
+/* Image column */
+.columns-careers > div > div:last-child {
+  order: -1;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-careers > div > div:last-child img {
+  width: 100%;
+  display: block;
+}
+
+@media (width >= 600px) {
+  .columns-careers > div {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .columns-careers > div > div {
+    flex: 1;
+  }
+
+  .columns-careers > div > div:last-child {
+    order: unset;
+  }
+}
+
+@media (width >= 900px) {
+  .columns-careers > div > div:first-child p:first-child {
+    font-size: 38px;
+  }
+
+  .columns-careers > div > div:first-child strong {
+    font-size: 20px;
+  }
+}
