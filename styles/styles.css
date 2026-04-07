@@ -155,9 +155,7 @@ main > div {
 }
 
 main .cards-spotlight-container {
-  margin: 0;
-  padding: 0;
-  max-width: 1240px;
+  margin: 40px auto;
 }
 
 main .cards-spotlight-container .cards-spotlight-wrapper {
@@ -248,6 +246,7 @@ footer button.button.secondary:focus {
   color: var(--text-color);
 }
 
+/* stylelint-disable no-descending-specificity */
 header button.button:disabled,
 header button.button:disabled:hover,
 footer button.button:disabled,
@@ -328,6 +327,8 @@ main button.button:disabled:hover {
   cursor: not-allowed;
   text-decoration: none;
 }
+
+/* stylelint-enable no-descending-specificity */
 
 main img {
   max-width: 100%;
