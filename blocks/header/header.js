@@ -211,8 +211,27 @@ export default async function decorate(block) {
     });
   }
 
+  // Strip button classes from nav-sections links
+  if (navSections) {
+    navSections.querySelectorAll('.button').forEach((button) => {
+      button.className = '';
+      const buttonContainer = button.closest('.button-container');
+      if (buttonContainer) {
+        buttonContainer.className = '';
+      }
+    });
+  }
+
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
+    // Strip button classes from tools links
+    navTools.querySelectorAll('.button').forEach((button) => {
+      button.className = '';
+      const buttonContainer = button.closest('.button-container');
+      if (buttonContainer) {
+        buttonContainer.className = '';
+      }
+    });
     const search = navTools.querySelector('a[href*="search"]');
     if (search && search.textContent === '') {
       search.setAttribute('aria-label', 'Search');

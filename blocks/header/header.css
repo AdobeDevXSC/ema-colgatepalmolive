@@ -1,6 +1,6 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #0b2840;
   width: 100%;
   z-index: 5;
   position: fixed;
@@ -19,6 +19,7 @@ header nav {
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
+  color: white;
 }
 
 header nav[aria-expanded='true'] {
@@ -28,15 +29,23 @@ header nav[aria-expanded='true'] {
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
+  background-color: #0b2840;
 }
 
 @media (width >= 900px) {
+  header .nav-wrapper {
+    --nav-height: auto;
+  }
+
   header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
+    display: grid;
+    grid-template:
+      'brand tools' auto
+      'sections sections' auto / auto 1fr;
+    gap: 0;
     max-width: 1264px;
     padding: 0 32px;
+    height: auto;
   }
 
   header nav[aria-expanded='true'] {
@@ -47,13 +56,19 @@ header nav[aria-expanded='true'] {
 
 header nav p {
   margin: 0;
-  
-  /* line-height: 1; BOILERPLATE DOESN'T HAVE a P tag in header, */
 }
 
+/* stylelint-disable no-descending-specificity */
 header nav a:any-link {
-  color: currentcolor;
+  color: white;
+  text-decoration: none;
 }
+
+header nav a:any-link:hover {
+  color: rgba(255 255 255 / 80%);
+}
+
+/* stylelint-enable no-descending-specificity */
 
 /* hamburger */
 header nav .nav-hamburger {
@@ -69,8 +84,8 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: white;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
@@ -139,15 +154,32 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
+  flex-basis: 200px;
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
+header .nav-brand a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
 header nav .nav-brand img {
-  width: 128px;
+  width: 180px;
   height: auto;
+}
+
+@media (width >= 900px) {
+  header .nav-brand {
+    padding: 12px 0;
+  }
 }
 
 /* sections */
@@ -171,7 +203,7 @@ header nav .nav-sections ul {
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -182,11 +214,14 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
 }
 
+/* stylelint-disable no-descending-specificity */
 @media (width >= 900px) {
   header nav .nav-sections {
     display: block;
     visibility: visible;
     white-space: nowrap;
+    border-top: 1px solid rgba(255 255 255 / 15%);
+    padding: 0;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
@@ -203,8 +238,8 @@ header nav .nav-sections ul > li > ul > li {
     content: '';
     display: inline-block;
     position: absolute;
-    top: 0.5em;
-    right: 2px;
+    top: 0.45em;
+    right: 0;
     transform: rotate(135deg);
     width: 6px;
     height: 6px;
@@ -222,13 +257,23 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections ul {
     display: flex;
     align-items: center;
-    gap: 24px;
+    justify-content: center;
+    gap: 32px;
     margin: 0;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
     position: relative;
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+  }
+
+  /* "Investors" link — external arrow style */
+  header nav .nav-sections .default-content-wrapper > ul > li:last-child {
+    font-weight: 700;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul {
@@ -240,42 +285,87 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     position: absolute;
     left: -24px;
-    width: 200px;
-    top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
+    width: 320px;
+    top: 100%;
+    padding: 24px;
+    background-color: white;
     white-space: initial;
-    z-index: 1;
+    z-index: 10;
+    box-shadow: 0 8px 24px rgba(0 0 0 / 15%);
+    border-radius: 0 0 8px 8px;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    content: none;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:last-child {
+    border-bottom: none;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:first-child {
+    font-weight: 700;
+    color: #005bac;
+    padding-bottom: 14px;
+    border-bottom: 2px solid #005bac;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
+    color: #343434;
+    font-size: 15px;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li:first-child a {
+    color: #005bac;
+    font-weight: 700;
+  }
+
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a:hover {
+    color: #005bac;
   }
 }
+
+/* stylelint-enable no-descending-specificity */
 
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
 }
 
-header nav .nav-tools .button {
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-tools a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+header nav .nav-tools a:hover {
+  color: rgba(255 255 255 / 80%);
+}
+
+header nav .nav-tools p {
   margin: 0;
-  border: none;
-  padding: 0.5em;
-  background: none;
-  line-height: 0;
+  display: inline;
+  padding-left: 20px;
+}
+
+@media (width >= 900px) {
+  header nav .nav-tools {
+    justify-content: flex-end;
+    padding: 12px 0;
+    grid-row: 1;
+    grid-column: 2;
+  }
 }
 
 /* breadcrumbs */
