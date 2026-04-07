@@ -1,4 +1,4 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 /**
@@ -17,4 +17,14 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
   block.append(footer);
+
+  decorateIcons(footer);
+
+  /* Doc-decorated CTAs become pills in main only; footer should stay text links */
+  footer.querySelectorAll('a.button').forEach((a) => {
+    a.classList.remove('button', 'primary', 'secondary');
+  });
+  footer.querySelectorAll('.button-container').forEach((el) => {
+    el.classList.remove('button-container');
+  });
 }
