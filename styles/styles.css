@@ -155,7 +155,7 @@ main > div {
 }
 
 main .cards-spotlight-container {
-  margin: 40px auto;
+  margin: 40px auto !important;
 }
 
 main .cards-spotlight-container .cards-spotlight-wrapper {
