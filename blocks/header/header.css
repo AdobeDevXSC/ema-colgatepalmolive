@@ -196,9 +196,9 @@ header nav .nav-brand img {
 
   header nav .nav-brand img {
     width: auto;
-    max-width: min(152px, 44vw);
+    max-width: 180px;
     max-height: 32px;
-    top: 0;
+    top: 4px;
     object-fit: contain;
   }
 
