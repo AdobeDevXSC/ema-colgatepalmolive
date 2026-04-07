@@ -36,10 +36,10 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav heights */
+  /* nav heights — mobile: spacer matches fixed bar (see header.css) */
   --nav-height: 64px;
   --breadcrumbs-height: 34px;
-  --header-height: 100px;
+  --header-height: var(--nav-height);
 }
 
 /* fallback fonts */
@@ -57,6 +57,9 @@
 
 @media (width >= 900px) {
   :root {
+    /* desktop header reserve (two-row nav); breadcrumbs override below when enabled */
+    --header-height: 100px;
+
     /* body sizes */
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
