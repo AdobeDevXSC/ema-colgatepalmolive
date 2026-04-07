@@ -87,11 +87,18 @@
 /* Dot indicators */
 .carousel-hero .carousel-slide-indicators {
   background-color: white;
-  gap: 22px;
+  gap: 16px;
 }
 
 .carousel-hero .carousel-slide-indicator button {
   background-color: #e3e3e3;
+}
+
+@media (width <= 768px) {
+  .carousel-hero .carousel-slide-indicator button { /*accessibility reasons*/
+    width: 24px;
+    height: 24px;
+  }  
 }
 
 .carousel-hero .carousel-slide-indicator button:disabled {
