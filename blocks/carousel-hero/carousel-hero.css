@@ -87,7 +87,7 @@
 /* Dot indicators */
 .carousel-hero .carousel-slide-indicators {
   background-color: white;
-  gap: 8px;
+  gap: 12px;
 }
 
 .carousel-hero .carousel-slide-indicator button {
