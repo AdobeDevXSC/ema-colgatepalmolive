@@ -397,7 +397,6 @@ main .section.grey > div {
 
 /* See more link in grey section */
 main .section.grey > div > p a {
-  color: #d2010d;
   font-style: italic;
   text-decoration: none;
 }
