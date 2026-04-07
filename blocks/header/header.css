@@ -380,6 +380,7 @@ header nav .nav-tools {
   align-items: center;
   gap: 20px;
   font-size: 14px;
+  visibility: hidden;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
@@ -415,6 +416,7 @@ header nav .nav-tools p {
 
 @media (width >= 900px) {
   header nav .nav-tools {
+    visibility: visible;
     justify-content: flex-end;
     padding: 12px 0;
     grid-row: 1;
