@@ -16,5 +16,18 @@ export default function decorate(block) {
   // replace images with optimized versions
   ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
 
+  // Add descriptive aria-labels to generic CTA links
+  ul.querySelectorAll('li').forEach((li) => {
+    const heading = li.querySelector('h1, h2, h3, h4, h5, h6');
+    if (heading) {
+      li.querySelectorAll('a').forEach((link) => {
+        const text = link.textContent.trim().replace(/→$/, '').trim();
+        if (/^(discover|learn|read|see|find out)\s+more$/i.test(text)) {
+          link.setAttribute('aria-label', `${text} about ${heading.textContent.trim()}`);
+        }
+      });
+    }
+  });
+
   block.replaceChildren(ul);
 }

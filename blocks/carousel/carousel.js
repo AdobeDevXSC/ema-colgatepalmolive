@@ -84,6 +84,13 @@ function createSlide(row, slideIndex, carouselId) {
   const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
   if (labeledBy) {
     slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
+    // Add descriptive aria-label to generic CTA links (e.g. "Discover more")
+    slide.querySelectorAll('a').forEach((link) => {
+      const text = link.textContent.trim().replace(/→$/, '').trim();
+      if (/^(discover|learn|read|see|find out)\s+more$/i.test(text)) {
+        link.setAttribute('aria-label', `${text} about ${labeledBy.textContent.trim()}`);
+      }
+    });
   }
 
   return slide;
